@@ -25,23 +25,52 @@ getHumanChoice = function() {
     return choice.toLowerCase();
 }
 
-console.log(getComputerChoice())
-getHumanChoice();
-
 playRound = function(humanChoice, computerChoice) {
-
-
-}
+        switch (humanChoice) {
+            case 'rock':
+                switch (computerChoice) {
+                    case 'rock': 
+                        console.log("Tie");
+                        break;
+                    case 'paper':
+                        console.log("You loose!");
+                        break;
+                    case 'scissors':
+                        console.log("You win!");
+                        break;
+                }
+                break;
+            case 'paper': 
+                switch (computerChoice) {
+                    case 'rock': 
+                        console.log("You win!");
+                        break;
+                    case 'paper':
+                        console.log("Tie");
+                        break;
+                    case 'scissors':
+                        console.log("You loose!");
+                        break;
+                }
+                break;
+            case 'scissors': {
+                switch (computerChoice) {
+                    case 'rock': 
+                        console.log("You loose!");
+                        break;
+                    case 'paper':
+                        console.log("You win!");
+                        break;
+                    case 'scissors':
+                        console.log("Tie");
+                        break;
+                }
+                break;
+            }
+        }
+  }
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 
 playRound(humanSelection, computerSelection);
-
-playGame = function();
-
-playGame();
-playGame();
-playGame();
-playGame();
-playGame();
