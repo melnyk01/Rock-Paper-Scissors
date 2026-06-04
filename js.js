@@ -21,7 +21,6 @@ getComputerChoice = function() {
 
 getHumanChoice = function() {
     const choice = prompt("Please enter the item to play the Game:  Rock,  Paper or Scissors");
-    console.log(choice);
     return choice.toLowerCase();
 }
 
@@ -30,13 +29,16 @@ playRound = function(humanChoice, computerChoice) {
             case 'rock':
                 switch (computerChoice) {
                     case 'rock': 
-                        console.log("Tie");
+                        console.log("Tie! Nobody is getting a point!");
+                        
                         break;
                     case 'paper':
                         console.log("You loose!");
+                        computerScore++;
                         break;
                     case 'scissors':
                         console.log("You win!");
+                        humanScore++;
                         break;
                 }
                 break;
@@ -44,12 +46,14 @@ playRound = function(humanChoice, computerChoice) {
                 switch (computerChoice) {
                     case 'rock': 
                         console.log("You win!");
+                        humanScore++;
                         break;
                     case 'paper':
-                        console.log("Tie");
+                        console.log("Tie! Nobody is getting a point!");
                         break;
                     case 'scissors':
                         console.log("You loose!");
+                        computerScore++;
                         break;
                 }
                 break;
@@ -57,12 +61,14 @@ playRound = function(humanChoice, computerChoice) {
                 switch (computerChoice) {
                     case 'rock': 
                         console.log("You loose!");
+                        computerScore++;
                         break;
                     case 'paper':
                         console.log("You win!");
+                        humanScore++;
                         break;
                     case 'scissors':
-                        console.log("Tie");
+                        console.log("Tie! Nobody is getting a point!");
                         break;
                 }
                 break;
@@ -70,7 +76,18 @@ playRound = function(humanChoice, computerChoice) {
         }
   }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+playGame = function() {
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
+    playRound(getHumanChoice(), getComputerChoice());
+    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`); 
+    
+ }
 
-playRound(humanSelection, computerSelection);
+playGame();
