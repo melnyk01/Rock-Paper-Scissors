@@ -1,6 +1,8 @@
 let humanScore = 0;
 let computerScore = 0;
-
+let btnRock = document.querySelector("#Rock");
+let btnPaper = document.querySelector("#Paper");
+let btnScissors = document.querySelector("#Scissors");
 getComputerChoice = function() {
     let num = Math.floor(Math.random() * 3);
     let computerChoice = "";
@@ -18,11 +20,15 @@ getComputerChoice = function() {
     
     return computerChoice;
 }
-
-getHumanChoice = function() {
-    const choice = prompt("Please enter the item to play the Game:  Rock,  Paper or Scissors");
-    return choice.toLowerCase();
-}
+btnRock.addEventListener("click", () => {
+    playRound('rock', getComputerChoice());
+});
+btnPaper.addEventListener("click", () => {
+    playRound('paper', getComputerChoice());
+});
+btnScissors.addEventListener("click", () => {
+    playRound('scissors', getComputerChoice());
+});
 
 playRound = function(humanChoice, computerChoice) {
         switch (humanChoice) {
@@ -79,15 +85,6 @@ playRound = function(humanChoice, computerChoice) {
 playGame = function() {
     playRound(getHumanChoice(), getComputerChoice());
     console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`);  
-    playRound(getHumanChoice(), getComputerChoice());
-    console.log(`Current score: \nHuman: ${humanScore} vs Computer ${computerScore}`); 
-    
  }
 
-playGame();
+// playGame();
